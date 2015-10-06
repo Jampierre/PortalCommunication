@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core"  
+    xmlns:p="http://primefaces.org/ui">  
+
+    <f:view contentType="text/html">
+        <h:head> 
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Login</title>
+            </f:facet>
+        </h:head>  
+
+        <h:body>  
+            <h:form>
+                    <p:layout fullPage="true">
+                        <p:layoutUnit position="center">
+                            Portal de Comunicação EStube
+                            <p:separator />
+
+                            <p:messages id="messages" showDetail="true" autoUpdate="true" />
+
+                            <h:panelGrid columns="2" id="matchGrid" cellpadding="5">
+                                <h:outputLabel for="nom" value="Nome " />
+                                <p:inputText id="nom" value="#{loginBean.usuario.email}" label="Nome " required="true" />
+                                <h:outputLabel for="sen" value="Senha " />
+                                <p:password id="sen" value="#{loginBean.usuario.senha}" match="sen" label="Senha" required="true" />
+                            </h:panelGrid>
+
+                            <p:commandButton update="matchGrid" value="Entrar" actionListener="#{loginBean.login()}"/>
+                      </p:layoutUnit>
+                    </p:layout>
+                </h:form>  
+        </h:body>  
+    </f:view>
+</html> 
+

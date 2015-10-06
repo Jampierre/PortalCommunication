@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.estube.communication.persistence;
+package br.com.estube.portalcommunication.persistence;
 
-import br.com.estube.communication.util.HibernateUtil;
+import br.com.estube.portalcommunication.util.HibernateUtil;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;

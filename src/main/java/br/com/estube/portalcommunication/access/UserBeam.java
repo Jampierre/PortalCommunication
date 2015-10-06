@@ -5,6 +5,7 @@
  */
 package br.com.estube.portalcommunication.access;
 
+import br.com.estube.portalcommunication.model.Usuario;
 import java.io.Serializable;
 
 /**
@@ -15,7 +16,7 @@ public class UserBeam implements Serializable{
     
     private String email;
     private String password;
-//    private Fornecedor fornecedor;
+    private Usuario usuario;
 
     public String getEmail() {
         return email;
@@ -31,5 +32,13 @@ public class UserBeam implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 }
