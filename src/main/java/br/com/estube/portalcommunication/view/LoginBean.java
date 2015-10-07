@@ -5,6 +5,7 @@
  */
 package br.com.estube.portalcommunication.view;
 
+import br.com.estube.portalcommunication.access.ControleNavegacao;
 import br.com.estube.portalcommunication.control.ControleUsuario;
 import br.com.estube.portalcommunication.access.UserBeam;
 import br.com.estube.portalcommunication.model.Usuario;
@@ -36,11 +37,9 @@ public class LoginBean {
         try{
             usuario = ControleUsuario.logarUsuario(usuario.getEmail(), usuario.getSenha());
             this.userSessionData.setUsuario(usuario);
-//            Menssagens.fatal();
-            return "/home.xhtml";
-//            return ControleNavegacao.Redirecionar(ControleNavegacao.HOME);
+            return ControleNavegacao.Redirecionar(ControleNavegacao.HOME);
         }catch(Exception e){
-            e.printStackTrace();
+            Menssagens.error(e.getMessage());
             return null;
         }
     }
@@ -52,22 +51,6 @@ public class LoginBean {
     public void setUserSessionData(UserBeam userSessionData) {
         this.userSessionData = userSessionData;
     }
-
-//    public String getEmail() {
-//        return email;
-//    }
-//
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
-//
-//    public String getSenha() {
-//        return senha;
-//    }
-//
-//    public void setSenha(String senha) {
-//        this.senha = senha;
-//    }
 
     public Usuario getUsuario() {
         return usuario;

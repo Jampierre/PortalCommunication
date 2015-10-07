@@ -29,7 +29,7 @@
                                 <p:password id="sen" value="#{loginBean.usuario.senha}" match="sen" label="Senha" required="true" />
                             </h:panelGrid>
 
-                            <p:commandButton update="matchGrid" value="Entrar" actionListener="#{loginBean.login()}"/>
+                            <p:commandButton update="matchGrid" value="Entrar" action="#{loginBean.login()}"/>
                       </p:layoutUnit>
                     </p:layout>
                 </h:form>  
