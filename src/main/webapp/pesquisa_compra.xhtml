@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">  
+
+
+    <f:view contentType="text/html">
+        <h:head> 
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Pesquisa</title>
+            </f:facet>
+        </h:head>  
+
+        <h:body>  
+            <h:form>
+                Portal de Comunicação EStube
+                <p:separator />
+
+                <p:dataTable id="tbl" var="log" value="#{pesquisaCompraBean.compras}"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                             paginator="true" rows="10" style="margin-bottom:20px">
+
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id" />
+                        </f:facet>
+                        <h:outputText value="#{log.id}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Acessos" />
+                        </f:facet>
+                        <h:outputText value="#{log.acessos}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Valor" />
+                        </f:facet>
+                        <h:outputText value="#{log.valor}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Codigo" />
+                        </f:facet>
+                        <h:outputText value="#{log.codigo}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>  
+            <p:stack icon="/img/dock/stack.png">
+                <p:menuitem value="Home" icon="/img/dock/home.png" url="#"/>
+                <p:menuitem value="Email" icon="/img/dock/email.png" url="#"/>
+                <p:menuitem value="Pesquisa" icon="/img/dock/portfolio.png" url="pesquisa_compra.jsf"/>
+            </p:stack>
+        </h:body>  
+    </f:view>
+</html> 
+
