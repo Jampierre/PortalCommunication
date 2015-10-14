@@ -13,17 +13,19 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
  * @author Jampierre
  */
 @ManagedBean(name = "pesquisaCompraBean")
-@RequestScoped
+@ViewScoped
+//@RequestScoped
 public class PesquisaCompraBean implements Serializable{
     private List<Compra> compras;
     private Compra aux;
-
+    private Compra compraSelecionada;
     private List<Compra>filtroCompras;
     
 //    @ManagedProperty("#{logDao}")
@@ -34,11 +36,7 @@ public class PesquisaCompraBean implements Serializable{
     public void init(){
         compras = new ArrayList<>();
         aux = new Compra();
-//        dao = new LogCompraDAO();
-        System.out.println("INIT do CompraBean");
         compras = ControleCompra.logTest5();
-//        aux = dao.logTest3(139);
-        System.out.println("Tamanho da Lista: " + compras.size());
     }
     
     public List<Compra> getCompras() {
@@ -64,12 +62,13 @@ public class PesquisaCompraBean implements Serializable{
     public void setAux(Compra aux) {
         this.aux = aux;
     }
+    
+    public Compra getCompraSelecionada() {
+        return compraSelecionada;
+    }
 
-//    public ControleCompra getControle() {
-//        return controle;
-//    }
-//
-//    public void setControle(ControleCompra controle) {
-//        this.controle = controle;
-//    }
+    public void setCompraSelecionada(Compra compraSelecionada) {
+        System.out.println("ENTROU SET");
+        this.compraSelecionada = compraSelecionada;
+    }
 }

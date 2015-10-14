@@ -15,47 +15,104 @@
             </f:facet>
         </h:head>  
 
-        <h:body>  
-            <h:form>
+        <h:form id="form" >
+            <h:body>  
+
                 Portal de Comunicação EStube
                 <p:separator />
 
-                <p:dataTable id="tbl" var="log" value="#{pesquisaCompraBean.compras}"
-                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
-                             paginator="true" rows="10" style="margin-bottom:20px">
+                <p:growl id="msgs" showDetail="true" />
 
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Id" />
-                        </f:facet>
-                        <h:outputText value="#{log.id}" />
+                <p:dataTable id="tbl" var="compra" value="#{pesquisaCompraBean.compras}" reflow="true"
+                             paginator="true" rows="10">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{compra.id}" />
                     </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Acessos" />
-                        </f:facet>
-                        <h:outputText value="#{log.acessos}" />
+                    <p:column headerText="Acessos">
+                        <h:outputText value="#{compra.acessos}" />
                     </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Valor" />
-                        </f:facet>
-                        <h:outputText value="#{log.valor}" />
+                    <p:column headerText="Data">
+                        <h:outputText value="#{compra.data}" />
                     </p:column>
-                    <p:column>
-                        <f:facet name="header">
-                            <h:outputText value="Codigo" />
-                        </f:facet>
-                        <h:outputText value="#{log.codigo}" />
+                    <p:column headerText="Aluno">
+                        <h:outputText value="#{compra.aluno.nome}" />
+                    </p:column>
+                    <p:column headerText="Curso">
+                        <h:outputText value="#{compra.curso.nome}" />
+                    </p:column>
+                    <p:column headerText="Dias de Acesso">
+                        <h:outputText value="#{compra.diasAcessos}" />
+                    </p:column>
+                    <p:column headerText="Status da Transação">
+                        <h:outputText value="#{compra.statustransacao}" />
+                    </p:column>
+                    <p:column headerText="Acesso Limite">
+                        <h:outputText value="#{compra.acessoslimite}" />
+                    </p:column>
+                    <p:column headerText="Valor">
+                        <h:outputText value="#{compra.valor}" />
+                    </p:column>
+                    <p:column headerText="Parcial">
+                        <h:outputText value="#{compra.parcial}" />
+                    </p:column>
+                    <p:column headerText="Codigo">
+                        <h:outputText value="#{compra.codigo}" />
+                    </p:column>
+                    <p:column headerText="Certificado">
+                        <h:outputText value="#{compra.certificadogratuito}" />
+                    </p:column>
+                    <p:column style="width:32px;text-align: center">
+                        <p:commandButton update=":form:compraDetail" oncomplete="PF('compraDialog').show()" icon="ui-icon-search" title="View">
+                            <f:setPropertyActionListener value="#{compra}" target="#{pesquisaCompraBean.compraSelecionada}"/>
+                        </p:commandButton>
                     </p:column>
                 </p:dataTable>
-            </h:form>  
-            <p:stack icon="/img/dock/stack.png">
-                <p:menuitem value="Home" icon="/img/dock/home.png" url="#"/>
-                <p:menuitem value="Email" icon="/img/dock/email.png" url="#"/>
-                <p:menuitem value="Pesquisa" icon="/img/dock/portfolio.png" url="pesquisa_compra.jsf"/>
-            </p:stack>
-        </h:body>  
+
+                <p:dialog header="Informação da Compra" widgetVar="compraDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:outputPanel id="compraDetail" style="text-align:center;">
+                        <p:panelGrid columns="2" rendered="#{not empty pesquisaCompraBean.compraSelecionada}" columnClasses="label,value">
+                            <h:outputText value="Id:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.id}" />
+                            <h:outputText value="Acessos:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.acessos}" />
+                            <h:outputText value="Data:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.data}" />
+                            <h:outputText value="Aluno:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.aluno.nome}" />
+                            <h:outputText value="Curso:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.curso.nome}" />
+                            <h:outputText value="Dias de Acesso:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.diasAcessos}" />
+                            <h:outputText value="Status da Transação:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.statustransacao}" />
+                            <h:outputText value="Uuid:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.uuid}" />
+                            <h:outputText value="Url:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.url}" />
+                            <h:outputText value="Limite de Acessos:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.acessoslimite}" />
+                            <h:outputText value="Valor:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.valor}" />
+                            <h:outputText value="Parcial:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.parcial}" />
+                            <h:outputText value="Termo Aceito:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.aceitartermo}" />
+                            <h:outputText value="Codigo:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.codigo}" />
+                            <h:outputText value="Certificado:" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.certificadogratuito}" />
+                        </p:panelGrid>
+                    </p:outputPanel>
+                </p:dialog>
+
+
+                <p:stack icon="/img/dock/stack.png">
+                    <p:menuitem value="Home" icon="/img/dock/home.png" url="#"/>
+                    <p:menuitem value="Email" icon="/img/dock/email.png" url="#"/>
+                    <p:menuitem value="Pesquisa" icon="/img/dock/portfolio.png" url="pesquisa_compra.jsf"/>
+                </p:stack>
+            </h:body>  
+        </h:form>  
     </f:view>
 </html> 
 

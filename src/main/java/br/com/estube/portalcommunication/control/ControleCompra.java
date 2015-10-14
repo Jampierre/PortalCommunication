@@ -9,11 +9,8 @@ import br.com.estube.portalcommunication.model.Compra;
 import br.com.estube.portalcommunication.persistence.Persistencia;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
 
 /**
  *
