@@ -42,7 +42,7 @@ public class Compra extends ModelBase{
     private Long diasAcessos;
     
     @Column(name = "statustransacao")
-    private Long statustransacao;
+    private Integer statustransacao;
     
     @Column(name = "uuid")
     private String uuid;
@@ -57,7 +57,7 @@ public class Compra extends ModelBase{
     private Double valor;
     
     @Column(name = "parcial")
-    private Long parcial;
+    private Boolean parcial;
     
     @Column(name = "aceitartermo")
     private Long aceitartermo;
@@ -66,7 +66,7 @@ public class Compra extends ModelBase{
     private Long codigo;
     
     @Column(name = "certificadogratuito")
-    private Long certificadogratuito;
+    private Boolean certificadogratuito;
 
     public Long getAcessos() {
         return acessos;
@@ -108,11 +108,11 @@ public class Compra extends ModelBase{
         this.diasAcessos = diasAcessos;
     }
 
-    public Long getStatustransacao() {
+    public Integer getStatustransacao() {
         return statustransacao;
     }
 
-    public void setStatustransacao(Long statustransacao) {
+    public void setStatustransacao(Integer statustransacao) {
         this.statustransacao = statustransacao;
     }
 
@@ -148,11 +148,11 @@ public class Compra extends ModelBase{
         this.valor = valor;
     }
 
-    public Long getParcial() {
+    public Boolean getParcial() {
         return parcial;
     }
 
-    public void setParcial(Long parcial) {
+    public void setParcial(Boolean parcial) {
         this.parcial = parcial;
     }
 
@@ -172,11 +172,11 @@ public class Compra extends ModelBase{
         this.codigo = codigo;
     }
 
-    public Long getCertificadogratuito() {
+    public Boolean getCertificadogratuito() {
         return certificadogratuito;
     }
 
-    public void setCertificadogratuito(Long certificadogratuito) {
+    public void setCertificadogratuito(Boolean certificadogratuito) {
         this.certificadogratuito = certificadogratuito;
     }
 }

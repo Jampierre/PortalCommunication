@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author Jampierre
  */
 public class ControleCompra {
-
+    
     public static List<Compra> logTest5() {
         List<Compra> compras = new ArrayList<>();
         Persistencia presistencia = new Persistencia();

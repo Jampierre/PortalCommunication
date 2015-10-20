@@ -8,11 +8,20 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
-                <title>EsTube</title>
+                <title>Graficos</title>
             </f:facet>
         </h:head>
+        <h:form id="form" >
+            
+        
         <h:body>
-            Teste novo
+            Portal de Comunicação EStube
+                <p:separator />
+                
+                <h:panelGrid columns="10" columnClasses="left,right">
+                    <p:chart type="bar" model="#{pesquisaCompraBean.statusTransacao}"/>
+                </h:panelGrid>
+                
                 <p:stack icon="/img/dock/stack.png">
                     <p:menuitem value="Home" icon="/img/dock/home.png" url="#"/>
                     <p:menuitem value="Email" icon="/img/dock/email.png" url="#"/>
@@ -20,6 +29,7 @@
                     <p:menuitem value="Graficos" icon="/img/dock/graphic.png" url="graficos.jsf"/>
                 </p:stack>
         </h:body>
+            </h:form>
     </f:view>
 </html>
 

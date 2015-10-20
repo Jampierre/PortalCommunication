@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"  
       xmlns:f="http://java.sun.com/jsf/core"  
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">  
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions">  
 
 
     <f:view contentType="text/html">
@@ -23,49 +24,91 @@
 
                 <p:growl id="msgs" showDetail="true" />
 
-                <p:dataTable id="tbl" var="compra" value="#{pesquisaCompraBean.compras}" reflow="true"
-                             paginator="true" rows="10">
-                    <p:column headerText="Id">
+                <p:contextMenu for="tbl">
+                    <p:menuitem value="Visualizar" update=":form:compraDetail" icon="ui-icon-search" oncomplete="PF('compraDialog').show()"/>
+                </p:contextMenu>
+
+                <p:dataTable id="tbl" var="compra" value="#{pesquisaCompraBean.compras}" reflow="true" widgetVar="tabelaCompras"
+                             paginator="true" rows="10"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15"
+                             rowKey="#{compra.id}" selectionMode="single" selection="#{pesquisaCompraBean.compraSelecionada}"
+                             emptyMessage="Nenhum registro encontrado com determinados critérios"
+                             filteredValue="#{pesquisaCompraBean.filtroCompras}">
+                    <f:facet name="header">
+                        Lista de Compras
+                        <p:outputPanel>
+                            <h:outputText value="Pesquisar todos os campos:" />
+                            <p:inputText id="filtroGlobal" onkeyup="PF('tabelaCompras').filter()" style="width:150px" placeholder="Inserir palavra-chave"/>
+                        </p:outputPanel>
+                        <!--                        <p:commandButton id="toggler" type="button" value="Columns" style="float:right" icon="ui-icon-calculator" />
+                                                <p:columnToggler datasource="tbl" trigger="toggler" />-->
+                    </f:facet>
+                    <p:column headerText="Id" sortBy="#{compra.id}" style="width: 40px;">
                         <h:outputText value="#{compra.id}" />
                     </p:column>
-                    <p:column headerText="Acessos">
+                    <p:column headerText="Acessos" sortBy="#{compra.acessos}" filterBy="#{compra.acessos}" filterMatchMode="contains">
                         <h:outputText value="#{compra.acessos}" />
                     </p:column>
-                    <p:column headerText="Data">
-                        <h:outputText value="#{compra.data}" />
+                    <p:column headerText="Data" sortBy="#{compra.data}">
+                        <h:outputText value="#{compra.data}">
+                            <f:convertDateTime locale="pt" dateStyle="long" pattern="dd/MM/yyyy"/>
+                        </h:outputText>
                     </p:column>
-                    <p:column headerText="Aluno">
+                    <p:column headerText="Aluno" sortBy="#{compra.aluno.nome}" filterBy="#{compra.aluno.nome}" filterMatchMode="contains">
                         <h:outputText value="#{compra.aluno.nome}" />
                     </p:column>
-                    <p:column headerText="Curso">
+                    <p:column headerText="Curso" sortBy="#{compra.curso.nome}" filterBy="#{compra.curso.nome}" filterMatchMode="contains">
                         <h:outputText value="#{compra.curso.nome}" />
                     </p:column>
-                    <p:column headerText="Dias de Acesso">
+                    <p:column headerText="Dias de Acesso" sortBy="#{compra.diasAcessos}" filterBy="#{compra.diasAcessos}" filterMatchMode="contains">
                         <h:outputText value="#{compra.diasAcessos}" />
                     </p:column>
-                    <p:column headerText="Status da Transação">
+                    <p:column headerText="Status da Transação" sortBy="#{compra.statustransacao}" filterBy="#{compra.statustransacao}" filterMatchMode="in">
+                        <f:facet name="filter">
+                            <p:selectCheckboxMenu label="Status" onchange="PF('tabelaCompras').filter()" panelStyle="width:79px" scrollHeight="150">
+                                <f:selectItems value="#{pesquisaCompraBean.status}"/>
+                            </p:selectCheckboxMenu>
+                        </f:facet>
                         <h:outputText value="#{compra.statustransacao}" />
                     </p:column>
-                    <p:column headerText="Acesso Limite">
+                    <p:column headerText="Acesso Limite" sortBy="#{compra.acessoslimite}" filterBy="#{compra.acessoslimite}" filterMatchMode="contains">
                         <h:outputText value="#{compra.acessoslimite}" />
                     </p:column>
-                    <p:column headerText="Valor">
-                        <h:outputText value="#{compra.valor}" />
+                    <p:column headerText="Valor" sortBy="#{compra.valor}">
+                        <h:outputText value="#{compra.valor}">
+                            <f:convertNumber type="currency" currencySymbol="R$"/>
+                        </h:outputText>
                     </p:column>
-                    <p:column headerText="Parcial">
-                        <h:outputText value="#{compra.parcial}" />
+                    <p:column headerText="Parcial" sortBy="#{compra.parcial}" filterBy="#{compra.parcial}" filterMatchMode="equals">
+                        <f:facet name="filter">
+                            <p:selectOneButton onchange="PF('tabelaCompras').filter()">
+                                <f:converter converterId="javax.faces.Boolean" />
+                                <f:selectItem itemLabel="Todos" itemValue="" />
+                                <f:selectItem itemLabel="Sim" itemValue="true" />
+                                <f:selectItem itemLabel="Não" itemValue="false" />
+                            </p:selectOneButton>
+                        </f:facet>
+                        <h:outputText value="#{compra.parcial ? 'Sim': 'Não'}" />
                     </p:column>
-                    <p:column headerText="Codigo">
+                    <p:column headerText="Codigo" sortBy="#{compra.codigo}" filterBy="#{compra.codigo}" filterMatchMode="contains">
                         <h:outputText value="#{compra.codigo}" />
                     </p:column>
-                    <p:column headerText="Certificado">
-                        <h:outputText value="#{compra.certificadogratuito}" />
+                    <p:column headerText="Certificado" sortBy="#{compra.certificadogratuito}" filterBy="#{compra.certificadogratuito}" filterMatchMode="equals">
+                        <f:facet name="filter">
+                            <p:selectOneButton onchange="PF('tabelaCompras').filter()">
+                                <f:converter converterId="javax.faces.Boolean" />
+                                <f:selectItem itemLabel="Todos" itemValue="" />
+                                <f:selectItem itemLabel="Gratuito" itemValue="true" />
+                                <f:selectItem itemLabel="Pago" itemValue="false" />
+                            </p:selectOneButton>
+                        </f:facet>
+                        <h:outputText value="#{compra.certificadogratuito ? 'Gratuito': 'Pago'}" />
                     </p:column>
-                    <p:column style="width:32px;text-align: center">
-                        <p:commandButton update=":form:compraDetail" oncomplete="PF('compraDialog').show()" icon="ui-icon-search" title="View">
-                            <f:setPropertyActionListener value="#{compra}" target="#{pesquisaCompraBean.compraSelecionada}"/>
-                        </p:commandButton>
-                    </p:column>
+                    
+                    <f:facet name="footer">
+                        No total, há #{fn:length(pesquisaCompraBean.compras)} registros.
+                    </f:facet>
                 </p:dataTable>
 
                 <p:dialog header="Informação da Compra" widgetVar="compraDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
@@ -76,7 +119,9 @@
                             <h:outputText value="Acessos:" />
                             <h:outputText value="#{pesquisaCompraBean.compraSelecionada.acessos}" />
                             <h:outputText value="Data:" />
-                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.data}" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.data}">
+                                <f:convertDateTime locale="pt" dateStyle="long" pattern="dd/MM/yyyy"/>
+                            </h:outputText>
                             <h:outputText value="Aluno:" />
                             <h:outputText value="#{pesquisaCompraBean.compraSelecionada.aluno.nome}" />
                             <h:outputText value="Curso:" />
@@ -92,15 +137,17 @@
                             <h:outputText value="Limite de Acessos:" />
                             <h:outputText value="#{pesquisaCompraBean.compraSelecionada.acessoslimite}" />
                             <h:outputText value="Valor:" />
-                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.valor}" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.valor}">
+                                <f:convertNumber type="currency" currencySymbol="R$"/>
+                            </h:outputText>
                             <h:outputText value="Parcial:" />
-                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.parcial}" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.parcial ? 'Sim': 'Não'}" />
                             <h:outputText value="Termo Aceito:" />
                             <h:outputText value="#{pesquisaCompraBean.compraSelecionada.aceitartermo}" />
                             <h:outputText value="Codigo:" />
                             <h:outputText value="#{pesquisaCompraBean.compraSelecionada.codigo}" />
                             <h:outputText value="Certificado:" />
-                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.certificadogratuito}" />
+                            <h:outputText value="#{pesquisaCompraBean.compraSelecionada.certificadogratuito ? 'Gratuito': 'Pago'}" />
                         </p:panelGrid>
                     </p:outputPanel>
                 </p:dialog>
@@ -110,6 +157,7 @@
                     <p:menuitem value="Home" icon="/img/dock/home.png" url="#"/>
                     <p:menuitem value="Email" icon="/img/dock/email.png" url="#"/>
                     <p:menuitem value="Pesquisa" icon="/img/dock/portfolio.png" url="pesquisa_compra.jsf"/>
+                    <p:menuitem value="Graficos" icon="/img/dock/graphic.png" url="graficos.jsf"/>
                 </p:stack>
             </h:body>  
         </h:form>  
