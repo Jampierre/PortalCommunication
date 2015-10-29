@@ -65,7 +65,7 @@ public class Email {
 "		<p style=\"text-align: center;\">\n" +
 "			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
 "		<p>\n" +
-"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por se matricular no curso de "+ compra.getCurso().getNome() +". A EStube agradece pela confian&ccedil;a depositada. Esperamos que aproveite o curso e que fa&ccedil;a uso tamb&eacute;m de outros servi&ccedil;os disponibilizados pelo nosso site.</p>\n" +
+"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por se matricular no curso de "+ compra.getCurso().getNome() +". A EStube agradece pela confian&ccedil;a depositada. Esperamos que aproveite o curso e que fa&ccedil;a uso tamb&eacute;m de outros servi&ccedil;os disponibilizamos pelo nosso site.</p>\n" +
 "		<p>\n" +
 "			<strong>Dados da sua matr&iacute;cula:</strong></p>\n" +
 "		<p>\n" +
@@ -128,7 +128,7 @@ public class Email {
 "		<p style=\"text-align: center;\">\n" +
 "			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
 "		<p>\n" +
-"			Ol&aacute; "+ compra.getAluno().getNome() +", gostariamos de lembra-lo do seu d&eacute;bito referente ao curso de "+ compra.getCurso().getNome() +". Para efetuar o pagamento, basta clicar no seguinte link</p>\n" +
+"			Ol&aacute; "+ compra.getAluno().getNome() +", gostar&iacute;amos de lembra-lo do seu d&eacute;bito referente ao curso de "+ compra.getCurso().getNome() +". Para efetuar o pagamento, basta clicar no seguinte link</p>\n" +
 "		<p style=\"text-align: center;\">\n" +
 "			<a href=\""+ compra.getUrl() +"\" target=\"_blank\"><img alt=\"link\" src=\"http://www.planandprepare.org/couples/sg_userfiles/paypal_icon.png\" style=\"width: 200px; height: 90px;\" /></a></p>\n" +
 "		<p>\n" +
@@ -240,7 +240,7 @@ public class Email {
 "		<p style=\"text-align: center;\">\n" +
 "			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
 "		<p>\n" +
-"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por ter concluido o curso de "+ compra.getCurso().getNome() +". Gostariamos de lembra-lo do pagamento referente ao Certificado de Conclus&atilde;o do curso de "+ compra.getCurso().getNome() +". Segue o link para o pagamento</p>\n" +
+"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por ter conclu&iacute;do o curso de "+ compra.getCurso().getNome() +". Gostar&iacute;amos de lembra-lo do pagamento referente ao Certificado de Conclus&atilde;o do curso de "+ compra.getCurso().getNome() +". Segue o link para o pagamento</p>\n" +
 "		<p style=\"text-align: center;\">\n" +
 "			<a href=\""+ compra.getUrl() +"\" target=\"_blank\"><img alt=\"link\" src=\"http://www.planandprepare.org/couples/sg_userfiles/paypal_icon.png\" style=\"width: 200px; height: 90px;\" /></a></p>\n" +
 "		<p>\n" +
@@ -284,7 +284,57 @@ public class Email {
             email.setSubject("Gere seu certificado agora!");
             email.addTo(compra.getAluno().getEmail());
 
-            email.setHtmlMsg("");
+            email.setHtmlMsg("<html>\n" +
+"	<head>\n" +
+"		<title></title>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:9px;\"><span style=\"color:#a9a9a9;\"><span style=\"font-family: Verdana, Helvetica, sans-serif; background-color: rgb(254, 254, 254);\">E-mail exclusivo para voc&ecirc;!</span></span></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por ter conclu&iacute;do o curso de "+ compra.getCurso().getNome() +". Gostar&iacute;amos de lembra-lo de que o Certificado de Conclus&atilde;o do curso de "+ compra.getCurso().getNome() +" est&aacute; dispon&iacute;vel para emiss&atilde;o no nosso site. Segue o link para gera&ccedil;&atilde;o do seu certificado.</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br/frontend/menu-top-certificado#.VjJyHrxYf-0\" target=\"_blank\"><img alt=\"link\" src=\"http://www.asbpm.org.br/arquivos_dados/foto_noticia/foto-noticia-id-123-f1.png\" style=\"width: 150px; height: 69px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<span style=\\\"font-size:10px;\\\">link: http://www.estube.com.br/frontend/menu-top-certificado#.VjJyHrxYf-0</span></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Atenciosamente EStube.</p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<img alt=\"\" src=\"https://ci3.googleusercontent.com/proxy/BskpQQOswEcEktlcWHTJ1GXqrB9aFVLijUYlXi-wmYLZuNmb9EXeeReH-d3DFfp9dXd7-ZKXAP0d6pmDLqyZut7X3x5SOIxKAHPOuFAkp08FDquIHn0r_kfgoizesg=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png\" style=\"width: 700px; height: 42px;\" /></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"https://www.linkedin.com/company/estube\"><img alt=\"\" src=\"https://econsultancy.com/assets/redesign/mailers/linkedin-icon-4809b1d5c719d6c540f1faba52e5317f.png\" style=\"width: 35px; height: 35px;\" /></a><a href=\"https://www.facebook.com/Estube?fref=ts\" target=\"_blank\"><img alt=\"\" src=\"http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"https://twitter.com/estubebr\" target=\"_blank\"><img alt=\"\" src=\"http://www.myiconfinder.com/uploads/iconsets/624dc72b6deef6abddf29031c1ac7224.png\" style=\"width: 34px; height: 34px; margin-left: 1px; margin-right: 1px;\" /></a><a href=\"https://www.youtube.com/user/PortalEstube\" target=\"_blank\"><img alt=\"\" src=\"http://sixpackshortcutsbrasil.com.br/wp-content/uploads/2015/06/youtube_icon.png\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"http://www.estube.com.br/blog/\" target=\"_blank\"><img alt=\"\" src=\"http://www.icbi-superinvestor.com/appdata/page/super-investor-conference-2011/ICBI_BLOG_-_White.png\" style=\"width: 31px; height: 31px; margin: 2px 3px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<b>Endere&ccedil;o:</b></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Rua Cabo Ailson Sim&otilde;es, n.&ordm; 222 - sala 305&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ed. Cristo Rei - Centro - Vila Velha - ES -&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			CEP 29100-302</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<b style=\"color: rgb(69, 69, 69); font-family: Helvetica; font-size: 12px; text-align: center;\">Copyright &copy; 2015 Todos os direitos reservados.</b></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:10px;\"><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">N&atilde;o deseja receber nossos emails?&nbsp;</span><a href=\"http://chaordicmail.livrariasaraiva.com.br/lv2/optout/b69FJ7V5XGh1wTssm4UdIbM4qsJXst1WdNFjT6FzMjZEuQ3tdBxAqQ-G4qkjvPyqWLMAZC_GnhK0uQN6Uleaoukbh24ukdzAcL7MwgFiFjfBI6aAMy5DZTkyzJooHMIBiNV10MKaWqmrvQp3cfkVl1mdSRI27IjvpFttNMCeyRtuld6qmZqjFTndZrElZi1HoItDeWBcBaQEpB0jpMN3V9_zJQOYATfwBm7_9BJDMX5DQx7kGFl28mOn0rn1_1bp0wgLh0hVmblSrzz65qp2ikjlJtq6rhxtuwSMchOkPNtjpATsegNlBobhWcWh5U6jIbixMW7oZqi5aKDeyHdkKk8yS4pq81wHByaV2ZDkejg\" style=\"color: rgb(68, 68, 68); border: 0px; outline: none; font-family: Verdana, Helvetica, sans-serif; font-size: 11px; margin: 0px; padding: 0px; line-height: 1.3;\" target=\"_blank\">Descadastre-se</a><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">.</span></span></p>\n" +
+"	</body>\n" +
+"</html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(Email.class.getName()).log(Level.SEVERE, null, ex);
@@ -300,7 +350,47 @@ public class Email {
             email.setSubject("Não se esqueça de assistir as aulas do seu curso");
             email.addTo(compra.getAluno().getEmail());
 
-            email.setHtmlMsg("");
+            email.setHtmlMsg("<html>\n" +
+"	<head>\n" +
+"		<title></title>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:9px;\"><span style=\"color:#a9a9a9;\"><span style=\"font-family: Verdana, Helvetica, sans-serif; background-color: rgb(254, 254, 254);\">E-mail exclusivo para voc&ecirc;!</span></span></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Parab&eacute;ns "+ compra.getAluno().getNome() +" por se matricular no curso de "+ compra.getCurso().getNome() +". N&atilde;o esque&ccedil;a de iniciar seus estudos, todo o material ainda se encontra dispon&iacute no nosso site.</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Atenciosamente EStube.</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"color:#808080;\"><em><span style=\"font-size:11px;\">&quot;&Eacute; fazendo que se aprende, aquilo que se deve aprender a fazer&quot; - Arist&oacute;teles&nbsp;</span></em></span></p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<img alt=\"\" src=\"https://ci3.googleusercontent.com/proxy/BskpQQOswEcEktlcWHTJ1GXqrB9aFVLijUYlXi-wmYLZuNmb9EXeeReH-d3DFfp9dXd7-ZKXAP0d6pmDLqyZut7X3x5SOIxKAHPOuFAkp08FDquIHn0r_kfgoizesg=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png\" style=\"width: 700px; height: 42px;\" /></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"https://www.linkedin.com/company/estube\"><img alt=\"\" src=\"https://econsultancy.com/assets/redesign/mailers/linkedin-icon-4809b1d5c719d6c540f1faba52e5317f.png\" style=\"width: 35px; height: 35px;\" /></a><a href=\"https://www.facebook.com/Estube?fref=ts\" target=\"_blank\"><img alt=\"\" src=\"http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"https://twitter.com/estubebr\" target=\"_blank\"><img alt=\"\" src=\"http://www.myiconfinder.com/uploads/iconsets/624dc72b6deef6abddf29031c1ac7224.png\" style=\"width: 34px; height: 34px; margin-left: 1px; margin-right: 1px;\" /></a><a href=\"https://www.youtube.com/user/PortalEstube\" target=\"_blank\"><img alt=\"\" src=\"http://sixpackshortcutsbrasil.com.br/wp-content/uploads/2015/06/youtube_icon.png\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"http://www.estube.com.br/blog/\" target=\"_blank\"><img alt=\"\" src=\"http://www.icbi-superinvestor.com/appdata/page/super-investor-conference-2011/ICBI_BLOG_-_White.png\" style=\"width: 31px; height: 31px; margin: 2px 3px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<b>Endere&ccedil;o:</b></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Rua Cabo Ailson Sim&otilde;es, n.&ordm; 222 - sala 305&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ed. Cristo Rei - Centro - Vila Velha - ES -&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			CEP 29100-302</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<b style=\"color: rgb(69, 69, 69); font-family: Helvetica; font-size: 12px; text-align: center;\">Copyright &copy; 2015 Todos os direitos reservados.</b></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:10px;\"><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">N&atilde;o deseja receber nossos emails?&nbsp;</span><a href=\"http://chaordicmail.livrariasaraiva.com.br/lv2/optout/b69FJ7V5XGh1wTssm4UdIbM4qsJXst1WdNFjT6FzMjZEuQ3tdBxAqQ-G4qkjvPyqWLMAZC_GnhK0uQN6Uleaoukbh24ukdzAcL7MwgFiFjfBI6aAMy5DZTkyzJooHMIBiNV10MKaWqmrvQp3cfkVl1mdSRI27IjvpFttNMCeyRtuld6qmZqjFTndZrElZi1HoItDeWBcBaQEpB0jpMN3V9_zJQOYATfwBm7_9BJDMX5DQx7kGFl28mOn0rn1_1bp0wgLh0hVmblSrzz65qp2ikjlJtq6rhxtuwSMchOkPNtjpATsegNlBobhWcWh5U6jIbixMW7oZqi5aKDeyHdkKk8yS4pq81wHByaV2ZDkejg\" style=\"color: rgb(68, 68, 68); border: 0px; outline: none; font-family: Verdana, Helvetica, sans-serif; font-size: 11px; margin: 0px; padding: 0px; line-height: 1.3;\" target=\"_blank\">Descadastre-se</a><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">.</span></span></p>\n" +
+"	</body>\n" +
+"</html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(Email.class.getName()).log(Level.SEVERE, null, ex);
@@ -316,7 +406,49 @@ public class Email {
             email.setSubject("Você tem mais 30 dias para concluir seu Curso");
             email.addTo(compra.getAluno().getEmail());
 
-            email.setHtmlMsg("");
+            email.setHtmlMsg("<html>\n" +
+"	<head>\n" +
+"		<title></title>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:9px;\"><span style=\"color:#a9a9a9;\"><span style=\"font-family: Verdana, Helvetica, sans-serif; background-color: rgb(254, 254, 254);\">E-mail exclusivo para voc&ecirc;!</span></span></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ol&aacute; "+ compra.getAluno().getNome() +",</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			O prazo do curso "+ compra.getCurso().getNome() +" que voc&ecirc; se inscreveu expirou, mas n&atilde;o se preocupe, disponibilizamos para voc&ecirc; mais 30 dias de acesso para que possa conclui-lo.</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Atenciosamente EStube.</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"color:#808080;\"><em><span style=\"font-size:11px;\">&quot;Nenhum obst&aacute;culo &eacute; t&atilde;o grande se sua vontade de vender for maior&quot; &nbsp;</span></em></span></p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<img alt=\"\" src=\"https://ci3.googleusercontent.com/proxy/BskpQQOswEcEktlcWHTJ1GXqrB9aFVLijUYlXi-wmYLZuNmb9EXeeReH-d3DFfp9dXd7-ZKXAP0d6pmDLqyZut7X3x5SOIxKAHPOuFAkp08FDquIHn0r_kfgoizesg=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png\" style=\"width: 700px; height: 42px;\" /></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"https://www.linkedin.com/company/estube\"><img alt=\"\" src=\"https://econsultancy.com/assets/redesign/mailers/linkedin-icon-4809b1d5c719d6c540f1faba52e5317f.png\" style=\"width: 35px; height: 35px;\" /></a><a href=\"https://www.facebook.com/Estube?fref=ts\" target=\"_blank\"><img alt=\"\" src=\"http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"https://twitter.com/estubebr\" target=\"_blank\"><img alt=\"\" src=\"http://www.myiconfinder.com/uploads/iconsets/624dc72b6deef6abddf29031c1ac7224.png\" style=\"width: 34px; height: 34px; margin-left: 1px; margin-right: 1px;\" /></a><a href=\"https://www.youtube.com/user/PortalEstube\" target=\"_blank\"><img alt=\"\" src=\"http://sixpackshortcutsbrasil.com.br/wp-content/uploads/2015/06/youtube_icon.png\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"http://www.estube.com.br/blog/\" target=\"_blank\"><img alt=\"\" src=\"http://www.icbi-superinvestor.com/appdata/page/super-investor-conference-2011/ICBI_BLOG_-_White.png\" style=\"width: 31px; height: 31px; margin: 2px 3px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<b>Endere&ccedil;o:</b></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Rua Cabo Ailson Sim&otilde;es, n.&ordm; 222 - sala 305&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ed. Cristo Rei - Centro - Vila Velha - ES -&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			CEP 29100-302</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<b style=\"color: rgb(69, 69, 69); font-family: Helvetica; font-size: 12px; text-align: center;\">Copyright &copy; 2015 Todos os direitos reservados.</b></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:10px;\"><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">N&atilde;o deseja receber nossos emails?&nbsp;</span><a href=\"http://chaordicmail.livrariasaraiva.com.br/lv2/optout/b69FJ7V5XGh1wTssm4UdIbM4qsJXst1WdNFjT6FzMjZEuQ3tdBxAqQ-G4qkjvPyqWLMAZC_GnhK0uQN6Uleaoukbh24ukdzAcL7MwgFiFjfBI6aAMy5DZTkyzJooHMIBiNV10MKaWqmrvQp3cfkVl1mdSRI27IjvpFttNMCeyRtuld6qmZqjFTndZrElZi1HoItDeWBcBaQEpB0jpMN3V9_zJQOYATfwBm7_9BJDMX5DQx7kGFl28mOn0rn1_1bp0wgLh0hVmblSrzz65qp2ikjlJtq6rhxtuwSMchOkPNtjpATsegNlBobhWcWh5U6jIbixMW7oZqi5aKDeyHdkKk8yS4pq81wHByaV2ZDkejg\" style=\"color: rgb(68, 68, 68); border: 0px; outline: none; font-family: Verdana, Helvetica, sans-serif; font-size: 11px; margin: 0px; padding: 0px; line-height: 1.3;\" target=\"_blank\">Descadastre-se</a><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">.</span></span></p>\n" +
+"	</body>\n" +
+"</html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(Email.class.getName()).log(Level.SEVERE, null, ex);
@@ -332,7 +464,49 @@ public class Email {
             email.setSubject("Nova prazo para realizar o curso");
             email.addTo(compra.getAluno().getEmail());
 
-            email.setHtmlMsg("");
+            email.setHtmlMsg("<html>\n" +
+"	<head>\n" +
+"		<title></title>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:9px;\"><span style=\"color:#a9a9a9;\"><span style=\"font-family: Verdana, Helvetica, sans-serif; background-color: rgb(254, 254, 254);\">E-mail exclusivo para voc&ecirc;!</span></span></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ol&aacute; "+ compra.getAluno().getNome() +",</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			O prazo do curso "+ compra.getCurso().getNome() +" que voc&ecirc; se inscreveu expirou, mas n&atilde;o se preocupe, disponibilizamos para voc&ecirc; mais 30 dias de acesso para que possa conclui-lo.</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Atenciosamente EStube.</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"color:#808080;\"><em><span style=\"font-size:11px;\">&quot;Descobri que quanto mais eu estudo, mais sorte eu pare&ccedil;o ter nas provas&quot; &nbsp;</span></em></span></p>\n" +
+"		<p>\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<img alt=\"\" src=\"https://ci3.googleusercontent.com/proxy/BskpQQOswEcEktlcWHTJ1GXqrB9aFVLijUYlXi-wmYLZuNmb9EXeeReH-d3DFfp9dXd7-ZKXAP0d6pmDLqyZut7X3x5SOIxKAHPOuFAkp08FDquIHn0r_kfgoizesg=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png\" style=\"width: 700px; height: 42px;\" /></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"https://www.linkedin.com/company/estube\"><img alt=\"\" src=\"https://econsultancy.com/assets/redesign/mailers/linkedin-icon-4809b1d5c719d6c540f1faba52e5317f.png\" style=\"width: 35px; height: 35px;\" /></a><a href=\"https://www.facebook.com/Estube?fref=ts\" target=\"_blank\"><img alt=\"\" src=\"http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"https://twitter.com/estubebr\" target=\"_blank\"><img alt=\"\" src=\"http://www.myiconfinder.com/uploads/iconsets/624dc72b6deef6abddf29031c1ac7224.png\" style=\"width: 34px; height: 34px; margin-left: 1px; margin-right: 1px;\" /></a><a href=\"https://www.youtube.com/user/PortalEstube\" target=\"_blank\"><img alt=\"\" src=\"http://sixpackshortcutsbrasil.com.br/wp-content/uploads/2015/06/youtube_icon.png\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"http://www.estube.com.br/blog/\" target=\"_blank\"><img alt=\"\" src=\"http://www.icbi-superinvestor.com/appdata/page/super-investor-conference-2011/ICBI_BLOG_-_White.png\" style=\"width: 31px; height: 31px; margin: 2px 3px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<b>Endere&ccedil;o:</b></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Rua Cabo Ailson Sim&otilde;es, n.&ordm; 222 - sala 305&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ed. Cristo Rei - Centro - Vila Velha - ES -&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			CEP 29100-302</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<b style=\"color: rgb(69, 69, 69); font-family: Helvetica; font-size: 12px; text-align: center;\">Copyright &copy; 2015 Todos os direitos reservados.</b></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:10px;\"><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">N&atilde;o deseja receber nossos emails?&nbsp;</span><a href=\"http://chaordicmail.livrariasaraiva.com.br/lv2/optout/b69FJ7V5XGh1wTssm4UdIbM4qsJXst1WdNFjT6FzMjZEuQ3tdBxAqQ-G4qkjvPyqWLMAZC_GnhK0uQN6Uleaoukbh24ukdzAcL7MwgFiFjfBI6aAMy5DZTkyzJooHMIBiNV10MKaWqmrvQp3cfkVl1mdSRI27IjvpFttNMCeyRtuld6qmZqjFTndZrElZi1HoItDeWBcBaQEpB0jpMN3V9_zJQOYATfwBm7_9BJDMX5DQx7kGFl28mOn0rn1_1bp0wgLh0hVmblSrzz65qp2ikjlJtq6rhxtuwSMchOkPNtjpATsegNlBobhWcWh5U6jIbixMW7oZqi5aKDeyHdkKk8yS4pq81wHByaV2ZDkejg\" style=\"color: rgb(68, 68, 68); border: 0px; outline: none; font-family: Verdana, Helvetica, sans-serif; font-size: 11px; margin: 0px; padding: 0px; line-height: 1.3;\" target=\"_blank\">Descadastre-se</a><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">.</span></span></p>\n" +
+"	</body>\n" +
+"</html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(Email.class.getName()).log(Level.SEVERE, null, ex);
@@ -348,7 +522,47 @@ public class Email {
             email.setSubject("Tente o curso navamente");
             email.addTo(compra.getAluno().getEmail());
 
-            email.setHtmlMsg("");
+            email.setHtmlMsg("<html>\n" +
+"	<head>\n" +
+"		<title></title>\n" +
+"		<style type=\"text/css\">\n" +
+"		</style>\n" +
+"	</head>\n" +
+"	<body>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:9px;\"><span style=\"color:#a9a9a9;\"><span style=\"font-family: Verdana, Helvetica, sans-serif; background-color: rgb(254, 254, 254);\">E-mail exclusivo para voc&ecirc;!</span></span></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<a href=\"http://www.estube.com.br\" target=\"_blank\"><img alt=\"EsTube Logo\" src=\"http://www.estube.com.br/frontend/templates/estube/images/logoImgNome.jpg\" style=\"width: 360px; height: 120px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ol&aacute; "+ compra.getAluno().getNome() +",</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Vimos que voc&ecirc; n&atilde;o foi muito bem nas avalia&ccedil;&otilde;es, mas n&atilde;o se preocupe, disponibilazamos para voc&ecirc; uma nova bateria de teste. Acesse o portal do Aluno novamente, e tente mais uma vez.</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Atenciosamente EStube.</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"color:#808080;\"><em><span style=\"font-size:11px;\">&quot;Ter sucesso &eacute; falhar repetidamente, mas sem perder o entusiasmo&quot; &nbsp;</span></em></span></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<img alt=\"\" src=\"https://ci3.googleusercontent.com/proxy/BskpQQOswEcEktlcWHTJ1GXqrB9aFVLijUYlXi-wmYLZuNmb9EXeeReH-d3DFfp9dXd7-ZKXAP0d6pmDLqyZut7X3x5SOIxKAHPOuFAkp08FDquIHn0r_kfgoizesg=s0-d-e1-ft#https://statici.icloud.com/emailimages/v4/common/footer_gradient_web.png\" style=\"width: 700px; height: 42px;\" /></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69); text-align: center;\">\n" +
+"			<a href=\"https://www.linkedin.com/company/estube\"><img alt=\"\" src=\"https://econsultancy.com/assets/redesign/mailers/linkedin-icon-4809b1d5c719d6c540f1faba52e5317f.png\" style=\"width: 35px; height: 35px;\" /></a><a href=\"https://www.facebook.com/Estube?fref=ts\" target=\"_blank\"><img alt=\"\" src=\"http://vignette3.wikia.nocookie.net/callofduty/images/3/3f/Facebook_icon.png/revision/20120119193552\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"https://twitter.com/estubebr\" target=\"_blank\"><img alt=\"\" src=\"http://www.myiconfinder.com/uploads/iconsets/624dc72b6deef6abddf29031c1ac7224.png\" style=\"width: 34px; height: 34px; margin-left: 1px; margin-right: 1px;\" /></a><a href=\"https://www.youtube.com/user/PortalEstube\" target=\"_blank\"><img alt=\"\" src=\"http://sixpackshortcutsbrasil.com.br/wp-content/uploads/2015/06/youtube_icon.png\" style=\"width: 30px; height: 30px; margin-top: 3px; margin-bottom: 3px;\" /></a><a href=\"http://www.estube.com.br/blog/\" target=\"_blank\"><img alt=\"\" src=\"http://www.icbi-superinvestor.com/appdata/page/super-investor-conference-2011/ICBI_BLOG_-_White.png\" style=\"width: 31px; height: 31px; margin: 2px 3px;\" /></a></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			<b>Endere&ccedil;o:</b></p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Rua Cabo Ailson Sim&otilde;es, n.&ordm; 222 - sala 305&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			Ed. Cristo Rei - Centro - Vila Velha - ES -&nbsp;</p>\n" +
+"		<p style=\"margin: 0px; font-size: 12px; line-height: normal; font-family: Helvetica; color: rgb(69, 69, 69);\">\n" +
+"			CEP 29100-302</p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<b style=\"color: rgb(69, 69, 69); font-family: Helvetica; font-size: 12px; text-align: center;\">Copyright &copy; 2015 Todos os direitos reservados.</b></p>\n" +
+"		<p style=\"text-align: center;\">\n" +
+"			<span style=\"font-size:10px;\"><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">N&atilde;o deseja receber nossos emails?&nbsp;</span><a href=\"http://chaordicmail.livrariasaraiva.com.br/lv2/optout/b69FJ7V5XGh1wTssm4UdIbM4qsJXst1WdNFjT6FzMjZEuQ3tdBxAqQ-G4qkjvPyqWLMAZC_GnhK0uQN6Uleaoukbh24ukdzAcL7MwgFiFjfBI6aAMy5DZTkyzJooHMIBiNV10MKaWqmrvQp3cfkVl1mdSRI27IjvpFttNMCeyRtuld6qmZqjFTndZrElZi1HoItDeWBcBaQEpB0jpMN3V9_zJQOYATfwBm7_9BJDMX5DQx7kGFl28mOn0rn1_1bp0wgLh0hVmblSrzz65qp2ikjlJtq6rhxtuwSMchOkPNtjpATsegNlBobhWcWh5U6jIbixMW7oZqi5aKDeyHdkKk8yS4pq81wHByaV2ZDkejg\" style=\"color: rgb(68, 68, 68); border: 0px; outline: none; font-family: Verdana, Helvetica, sans-serif; font-size: 11px; margin: 0px; padding: 0px; line-height: 1.3;\" target=\"_blank\">Descadastre-se</a><span style=\"color: rgb(68, 68, 68); font-family: Verdana, Helvetica, sans-serif; text-align: right; background-color: rgb(254, 254, 254);\">.</span></span></p>\n" +
+"	</body>\n" +
+"</html>");
             email.send();
         } catch (EmailException ex) {
             Logger.getLogger(Email.class.getName()).log(Level.SEVERE, null, ex);

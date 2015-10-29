@@ -43,20 +43,20 @@ public class LoginBean {
             usuario = ControleUsuario.logarUsuario(usuario.getEmail(), usuario.getSenha());
             this.userSessionData.setUsuario(usuario);
 
-            Email email = new Email();
-            Compra c = new Compra();
-            c.setUrl("https://pagseguro.uol.com.br/v2/checkout/payment.html?code=A9CC1959A9A9B83554590F94734F63E9");
-            c.setAluno(new Aluno());
-            c.getAluno().setNome("Jampierre V. Rocha");
-            c.getAluno().setEmail("r.jampierre@gmail.com");
-            c.setCurso(new Curso());
-            c.getCurso().setNome("Diagrama de Classes com UML - Básico");
-            c.getCurso().setDiasAcesso(new Long(120));
-            System.out.println("Criou o Usuario");
+//            Email email = new Email();
+//            Compra c = new Compra();
+//            c.setUrl("https://pagseguro.uol.com.br/v2/checkout/payment.html?code=A9CC1959A9A9B83554590F94734F63E9");
+//            c.setAluno(new Aluno());
+//            c.getAluno().setNome("Jampierre V. Rocha");
+//            c.getAluno().setEmail("r.jampierre@gmail.com");
+//            c.setCurso(new Curso());
+//            c.getCurso().setNome("Diagrama de Classes com UML - Básico");
+//            c.getCurso().setDiasAcesso(new Long(120));
+//            System.out.println("Criou o Usuario");
 //            email.novaMatriculaDeCurso(c);
 //            email.pesquisa1(c);
 //            email.pesquisa2(c);
-            email.pesquisa3(c);
+//            email.pesquisa3(c);
 
             return ControleNavegacao.Redirecionar(ControleNavegacao.HOME);
         } catch (Exception e) {

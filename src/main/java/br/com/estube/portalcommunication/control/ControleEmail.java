@@ -5,12 +5,9 @@
  */
 package br.com.estube.portalcommunication.control;
 
-import br.com.estube.portalcommunication.model.Aluno;
-import java.util.ArrayList;
+import br.com.estube.portalcommunication.model.Compra;
 import java.util.Date;
 import java.util.List;
-import org.hibernate.Query;
-import org.hibernate.Session;
 
 /**
  *
@@ -29,7 +26,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa1(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa1(Date dataInicio, Date dataFim) {
         String hql = "Select cp.statustransacao, cp.data, cp.valor, cr.nome as curso, al.nome as Aluno, al.email, cp.url "
                 + "From compra as cp, aluno as al, curso as cr "
                 + "Where cp.statustransacao = 0 "
@@ -53,7 +50,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa2(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa2(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as IDCp, al.id as IDAl, cr.nome as Curso, al.nome as Aluno, al.email as Email, "
                 + "al.telefone as Fone, av.data as 'Data Aprovação', av.resultado as Resultado, pg.url, pg.tipo "
                 + "From compra as cp, curso as cr, aluno as al, avaliacao as av, pagamento as pg "
@@ -84,7 +81,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa3(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa3(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as IDCp, al.id as IDAl, cr.nome as Curso, al.nome as Aluno, al.email as Email, "
                 + "al.telefone as Fone, av.data as 'Data Aprovação', av.resultado as Resultado, pg.url, pg.tipo "
                 + "From compra as cp, curso as cr, aluno as al, avaliacao as av, pagamento as pg "
@@ -114,7 +111,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa4(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa4(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cr.nome as Curso, al.nome as Aluno, al.email as 'E-mail', av.data as 'Data Aprovação', "
                 + "av.resultado as Resultado, cp.codigo "
                 + "From compra as cp, curso as cr, aluno as al, avaliacao as av "
@@ -148,7 +145,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa5(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa5(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From compra as cp, curso as cr, aluno as al "
                 + "where "
@@ -178,7 +175,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa6P(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa6P(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From compra as cp, curso as cr, aluno as al "
                 + "where "
@@ -209,7 +206,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa6G(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa6G(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From compra as cp, curso as cr, aluno as al "
                 + "where "
@@ -240,7 +237,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa7P(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa7P(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From compra as cp, curso as cr, aluno as al "
                 + "where "
@@ -271,7 +268,7 @@ public class ControleEmail {
      * @param dataFim
      * @return
      */
-    public static List<Aluno> pesquisa7G(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa7G(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From compra as cp, curso as cr, aluno as al "
                 + "where "
@@ -301,7 +298,7 @@ public class ControleEmail {
      * @param dataFim
      * @return list
      */
-    public static List<Aluno> pesquisa8(Date dataInicio, Date dataFim) {
+    public static List<Compra> pesquisa8(Date dataInicio, Date dataFim) {
         String hql = "Select cp.id as Compra, cp.data as Data, cr.nome as Curso, cr.valor as Valor, al.nome as Aluno, al.email as 'E-mail' "
                 + "From avaliacao as av, compra as cp, aluno as al, curso as cr "
                 + "where "
